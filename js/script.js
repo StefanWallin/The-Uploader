@@ -1,5 +1,6 @@
-/* Author: 
-	Stefan Wallin
+/* 
+   Author: Stefan Wallin
+   License: HTML5 Uploader by Stefan Wallin is licensed under a Creative Commons Attribution 3.0 Unported License.
 */
 function cancelEvent() { return false; } 
 function addFiles(files,uri,el){
@@ -7,7 +8,6 @@ function addFiles(files,uri,el){
 	if (files.length > 0) {
 		for(var i = files.length; i>0; i--){
 			file = files[i-1];
-			console.log(file);
 			if (typeof FileReader !== "undefined" && file.type.indexOf("image") != -1) {
 				var reader = new FileReader();
 				// Note: addEventListener doesn't work in Google Chrome for this event
@@ -82,11 +82,9 @@ function createUploaderElem(i,olEl,drag,uri){
 		el.get(0).ondragover = cancelEvent; //This one is for the standards API.
 		el.get(0).ondrop = function (event) {
 			event = event || window.event; //IE doesn't pass the event handler, so we need to retrieve it
-			console.log(event);
 			var msg = $("p",el);
 			var img = $("img",el);
 			var link = $("a",el);
-			// console.log(event.dataTransfer.files);
 			files =  event.dataTransfer.files;	
 			addFiles(files,uri,el);
 			event.cancelBubble = true; //Cancel bubbling opening new windows in IE
