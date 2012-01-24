@@ -30,6 +30,18 @@
 				<input type="file" name="some_name2" id="some_name2" /><br />
 				<strong>Multiple:</strong><br>
 				<input type="file" name="some_name3" id="some_name3" multiple /><br />
+				<!-- <strong>1.st Normal:</strong><br>
+				<input type="file" name="some_name4" id="some_name" /><br />
+				<strong>Normal:</strong><br>
+				<input type="file" name="some_name5" id="some_name2" /><br />
+				<strong>Multiple:</strong><br>
+				<input type="file" name="some_name6" id="some_name3" multiple /><br />
+				<strong>1.st Normal:</strong><br>
+				<input type="file" name="some_name7" id="some_name" /><br />
+				<strong>Normal:</strong><br>
+				<input type="file" name="some_name8" id="some_name2" /><br />
+				<strong>Multiple:</strong><br>
+				<input type="file" name="some_name9" id="some_name3" multiple /><br /> -->
 			</section>
 			<button id="run">Execute uploader script</button>
 		</div>
@@ -42,8 +54,10 @@
 		<!-- bind execute trigger for uploader script -->
                 <script>
                         $("#run").click(function(){
-				console.log("ran");
-                                setupFileUploaders("uploads");
+							var start = (new Date).getTime();
+							setupFileUploaders("#uploads");
+							var diff = (new Date).getTime() - start;
+							$("#run").after("<p>Execution done in " + diff + "ms.</p>")
                         });
                 </script>	
 
